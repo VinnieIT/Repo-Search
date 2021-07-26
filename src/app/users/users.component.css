@@ -1,0 +1,6 @@
+body{
+    font-family: 'STIX Two Math', serif;
+    background-image: linear-gradient( #3494e6,#ec6ead);
+    /* background-repeat: no-repeat; */
+    height:100%;
+}
