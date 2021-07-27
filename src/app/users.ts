@@ -1,25 +1,20 @@
 export class Users {
      
-    userID: number;
-    userLoginName: string;
-    userName: string;
-    userAvatar: string;
-    userEmail: string;
-    userRepoCount: number;
-    userLocation: string;
-    userFollowers: number;
-    
+    public userID: number;
+    public userlogin: string;
+    public userName: string;
+    public userEmail: string;
+    public userRepoCount: number;
+    public userLocation: string;
     userCreationDate: string;
 
     constructor(){
         this.userID=0;
-        this.userLoginName="";
+        this.userlogin="";
         this.userName="";      
-        this.userAvatar="";
         this.userEmail="";
         this.userRepoCount=0;
         this.userLocation="";
-        this.userFollowers=0;       
         this.userCreationDate="";
     }
 }
