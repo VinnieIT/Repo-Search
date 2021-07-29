@@ -1,21 +1,22 @@
 export class Users {
+    
      
-    public userID: number;
-    public userlogin: string;
-    public userName: string;
-    public userEmail: string;
-    public userRepoCount: number;
-    public userLocation: string;
-    userCreationDate: string;
+    public id: number;
+    public login: string;
+    public name: string;
+    public email: string;
+    public public_Repos: number;
+    public location: string;
+    public CreationDate: string;
 
     constructor(){
-        this.userID=0;
-        this.userlogin="";
-        this.userName="";      
-        this.userEmail="";
-        this.userRepoCount=0;
-        this.userLocation="";
-        this.userCreationDate="";
+        this.id=0;
+        this.login="";
+        this.name="";      
+        this.email="";
+        this.public_Repos=0;
+        this.location="";
+        this.CreationDate="";
     }
 }
 
