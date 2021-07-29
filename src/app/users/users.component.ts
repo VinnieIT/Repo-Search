@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Users } from '../users'; 
+import { NgForm } from '@angular/forms';
 import { Repo } from '../repos';
-import {ApiResponseServService} from '../api-response-serv.service'
+import { Router } from '@angular/router';
+import {ApiResponseServService} from '../api-response-serv.service';
 
 
 @Component({
@@ -13,9 +15,43 @@ import {ApiResponseServService} from '../api-response-serv.service'
 })
 export class UsersComponent implements OnInit {
 
-  constructor(apiRespond:ApiResponseServService, private http:HttpClient) { }
+  user!: Users;
+  public searchNames!: string;
+  public ghubProfile: any;
+  public githubRepos!:any[];
+  public errorAlert!: string;
 
-  ngOnInit(): void {
+
+  constructor(private apiRespond:ApiResponseServService, private router:Router) { }
+
+  ngOnInit() {
   }
 
-}
+  public getUserName(){
+    //profile search
+    this.apiRespond.getUserProfile(this.searchNames).subscribe((data)=> {
+      this.ghubProfile = data;
+      console.log(this.ghubProfile);
+
+
+    },(error)=>{
+      this.errorAlert =error;
+
+    });
+
+    //get repos
+    this.apiRespond.getUserRepos(this.searchNames).subscribe((data)=> {
+      this.githubRepos = data ;
+      console.log(this.githubRepos);
+
+    },(error)=>{
+      this.errorAlert =error;
+
+    });
+    
+    
+  }
+   
+       
+     }
+
