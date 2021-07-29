@@ -1,1 +1,66 @@
-g<p>users works!</p>
+
+<div class="container user-page">
+    <form class="form-inline waves-light" (submit)='getUserName()' #searchForm ='ngForm'>
+        <div class="md-form mt-0">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <input class="form-control mr-sm-2" [(ngModel)]= 'searchNames' #searchName= 'ngModel' name='searchName' type="text" placeholder="-github username" id='searchName'>
+                </div>
+                <div class="col-md-3">
+                    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+                    
+                </div>
+            </div>
+        </div>
+      </form>
+      
+</div>
+<div class="container-fluid">
+    <div class="card rounded shadow-sm border-0 profile-card">
+        <div class="card-body p-0">
+            <div class="bg-primary px-5 py-4 text-center card-img-top"><img src= {{ghubProfile.avatar_url}} alt="..." width="100" class="rounded-circle mb-2 img-thumbnail d-block mx-auto">
+                <h5 class="text-white mb-0">{{ghubProfile.name}}</h5>
+                <p class="small text-white mb-0">{{ghubProfile.location}}</p>
+            </div>
+            <div class="p-4 d-flex justify-content-center">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">{{ghubProfile.public_repos}}</h5><small class="text-muted"><i class="fa fa-picture-o mr-1 text-primary"></i>Repos</small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">{{ghubProfile.followers}}</h5><small class="text-muted"><i class="fa fa-user-circle-o mr-1 text-primary"></i>Follower</small>
+                    </li>
+                    <li class="list-inline-item">
+                        <h5 class="font-weight-bold mb-0 d-block">{{ghubProfile.updated_at | date}}</h5><small class="text-muted"><i class="fa fa-user-circle-o mr-1 text-primary"></i>Date Created</small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row card-collection">
+    <div class="card" *ngFor = 'let repo of githubRepos' style="width: 20rem;" >
+        <h5 class="card-header">{{repo.name}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{repo.language}}</h5>
+          <p class="card-text">
+            {{repo.description}}
+          </p>
+          <a href={{repo.html_url}} class="btn btn-primary btn-sm">Repo Link</a>
+        </div>
+      </div>
+</div>
+
+
+
+<!-- <div class="col-md-4">
+    <div class="card" >
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{repo.name}}</h6>
+            <p class="card-text">{{repo.description}}</p>
+            <a href="#" class="btn mr-2"><i class="fas fa-link"></i> {{repo.html_url}}/a>
+            <a href="#" class="btn "><i class="fab fa-github"></i> Github</a>
+        </div>  
+    </div>    
+</div> -->
