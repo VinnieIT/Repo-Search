@@ -39,7 +39,7 @@ export class ApiResponseServService {
 
   //profiles
   getUserProfile(userSearch: any):Observable<UserResponse>{
-    let userUrl = `https://api.github.com/users/${userSearch}?access_token=${environment.apiKey}`;
+    let userUrl = `https://api.github.com/users/${userSearch}`;
     return this.http.get<any>(userUrl).pipe(
       retry(1),
       catchError(this.PErrors)
@@ -48,7 +48,7 @@ export class ApiResponseServService {
 
   }
   getUserRepos(userSearch: any):Observable<any[]>{
-    let userUrl = `https://api.github.com/users/${userSearch}/repos?access_token=${environment.apiKey}`;
+    let userUrl = `https://api.github.com/users/${userSearch}/repos`;
     return this.http.get<any[]>(userUrl).pipe(
       retry(1),
       catchError(this.PErrors)
